@@ -18,7 +18,7 @@ public class ModelLoader
         Console.WriteLine();
 
         var moduleAssemblyPath = Path.GetFullPath(options.ModulePath);
-        string[] modelAssemblies = Directory.GetFiles(Path.GetDirectoryName(moduleAssemblyPath)!, "*.dll");
+        var modelAssemblies = Directory.GetFiles(Path.GetDirectoryName(moduleAssemblyPath)!, "*.dll");
         Console.WriteLine($"Following libraries will be scanned: {Environment.NewLine}{string.Join(Environment.NewLine, modelAssemblies)}{Environment.NewLine}");
 
         var paths = runtimeAssemblies.Union(modelAssemblies);

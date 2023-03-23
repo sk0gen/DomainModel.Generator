@@ -25,7 +25,7 @@ public class Options
 
     public bool ShouldReflect(Type type)
     {
-        if (!type.IsPublic || type.IsAutoClass)
+        if (type.IsAutoClass || type.IsNested || type.Name.Contains("AnonymousType"))
             return false;
 
         if (ExcludeTypes.Length > 0 && ExcludeTypes.Any(t => t == string.Format("{0}.{1}", type.Namespace, type.Name)))

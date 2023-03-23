@@ -23,13 +23,6 @@ public class ModelReflectorTest
         graph.Nodes.Length.Should().Be(0);
     }
 
-    [Fact]
-    public void InternalClass_ShouldBeSkipped()
-    {
-        var sut = CreateSut();
-        var graph = sut.ReflectTypes(types: new[] { typeof(InternalClass) });
-        graph.Nodes.Length.Should().Be(0);
-    }
 
     [Fact]
     public void NestedClass_ShouldBeSkipped()
